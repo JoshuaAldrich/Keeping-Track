@@ -1,19 +1,23 @@
+DROP DATABASE IF EXISTS keep_tracking;
+CREATE DATABASE keep_tracking;
+USE keep_tracking;
+
 DROP TABLE IF EXISTS department;
-DROP TABLE IF EXISTS roles;
+DROP TABLE IF EXISTS role;
 DROP TABLE IF EXISTS employee;
+
 
 CREATE TABLE department (
  id INTEGER AUTO_INCREMENT PRIMARY KEY,
-  name VARCHAR(30) NOT NULL,
+  name VARCHAR(30) NOT NULL
 );
 
-CREATE TABLE roles (
+CREATE TABLE role (
   id INTEGER AUTO_INCREMENT PRIMARY KEY,
   title VARCHAR(30) NOT NULL,
   salary DECIMAL NOT NULL,
-  department_id INTEGER
-  INDEX department_id (department_id),
-  CONSTRAINT fk department FOREIGN KEY (department_id) REFERENCES department(id) ON DELETE CASCADE
+  department_id INTEGER,
+  CONSTRAINT fk_department FOREIGN KEY (department_id) REFERENCES department(id) ON DELETE CASCADE
 );
 
 CREATE TABLE employee (

@@ -1,6 +1,6 @@
 const inquirer = require("inquirer");
-const db = require("./db/connection");
-const sql = require("mysql2");
+// const db = require("./db/connection");
+// const sql = require("mysql2");
 const cTable = require("console.table");
 const {
   getDepartments,
@@ -36,63 +36,76 @@ const start = (answers) => {
       },
     ])
     .then((answers) => {
-      console.log(answers.options);
-      switch (answers.options) {
-        case "SHOW DEPARTMENTS":
-          getDepartments().then(() => {
-            start();
-          });
-          break;
-        case "SHOW ROLES":
-          allRoles().then(() => {
-            start();
-          });
-          break;
-        case "SHOW EMPLOYEES":
-          getEmployees().then(() => {
-            start();
-          });
-          break;
-        case "ADD DEPARTMENT":
-          addDepartments().then(() => {
-            getDepartments();
-            start();
-          });
-          break;
-        case "ADD ROLE":
-          addRole().then(() => {
-            allRoles();
-            start();
-          });
-          break;
-        case "ADD EMPLOYEE":
-          addEmployees().then(() => {
-            getEmployees();
-            start();
-          });
-          break;
-        case "UPDATE EMPLOYEE`S ROLE":
-          updateRole().then(() => {
-            getEmployees();
-            start();
-          });
-          break;
-        case "DELETE EMPLOYEE":
-          deleteEmployee().then(() => {
-            getEmployees();
-            start();
-          });
-          break;
-        case "DELETE DEPARTMENT":
-          deleteDepartment().then(() => {
-            getDepartments();
-            start();
-          });
-          break;
-      }
+      if (answers.options == "SHOW DEPARTMENTS"){
+        getDepartments().then(() => {
+                start();
+              });
+      } 
+      if (answers.options == "SHOW ROLES"){
+        allRoles().then(() => {
+                start();
+              });
+    }
+      if
+
+      // console.log(answers.options);
+      // switch (answers.options) {
+      //   case "SHOW DEPARTMENTS":
+      //     getDepartments().then(() => {
+      //       start();
+      //     });
+      //     break;
+      //   case "SHOW ROLES":
+      //     allRoles().then(() => {
+      //       start();
+      //     });
+      //     break;
+      //   case "SHOW EMPLOYEES":
+      //     getEmployees().then(() => {
+      //       start();
+      //     });
+      //     break;
+      //   case "ADD DEPARTMENT":
+      //     addDepartments().then(() => {
+      //       getDepartments();
+      //       start();
+      //     });
+      //     break;
+      //   case "ADD ROLE":
+      //     addRole().then(() => {
+      //       allRoles();
+      //       start();
+      //     });
+      //     break;
+      //   case "ADD EMPLOYEE":
+      //     addEmployees().then(() => {
+      //       getEmployees();
+      //       start();
+      //     });
+      //     break;
+      //   case "UPDATE EMPLOYEE`S ROLE":
+      //     updateRole().then(() => {
+      //       getEmployees();
+      //       start();
+      //     });
+      //     break;
+      //   case "DELETE EMPLOYEE":
+      //     deleteEmployee().then(() => {
+      //       getEmployees();
+      //       start();
+      //     });
+      //     break;
+      //   case "DELETE DEPARTMENT":
+      //     deleteDepartment().then(() => {
+      //       getDepartments();
+      //       start();
+      //     });
+      //     break;
+      // }
+    })
+    .catch((err) => {
+      console.log(err);
     });
 };
 
 start();
-
-module.exports = { start };
