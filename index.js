@@ -36,72 +36,57 @@ const start = (answers) => {
       },
     ])
     .then((answers) => {
-      if (answers.options == "SHOW DEPARTMENTS"){
+      if (answers.options == "SHOW DEPARTMENTS") {
         getDepartments().then(() => {
-                start();
-              });
-      } 
-      if (answers.options == "SHOW ROLES"){
+          start();
+        });
+      }
+      if (answers.options == "SHOW ROLES") {
         allRoles().then(() => {
-                start();
-              });
-    }
-      if
-
-      // console.log(answers.options);
-      // switch (answers.options) {
-      //   case "SHOW DEPARTMENTS":
-      //     getDepartments().then(() => {
-      //       start();
-      //     });
-      //     break;
-      //   case "SHOW ROLES":
-      //     allRoles().then(() => {
-      //       start();
-      //     });
-      //     break;
-      //   case "SHOW EMPLOYEES":
-      //     getEmployees().then(() => {
-      //       start();
-      //     });
-      //     break;
-      //   case "ADD DEPARTMENT":
-      //     addDepartments().then(() => {
-      //       getDepartments();
-      //       start();
-      //     });
-      //     break;
-      //   case "ADD ROLE":
-      //     addRole().then(() => {
-      //       allRoles();
-      //       start();
-      //     });
-      //     break;
-      //   case "ADD EMPLOYEE":
-      //     addEmployees().then(() => {
-      //       getEmployees();
-      //       start();
-      //     });
-      //     break;
-      //   case "UPDATE EMPLOYEE`S ROLE":
-      //     updateRole().then(() => {
-      //       getEmployees();
-      //       start();
-      //     });
-      //     break;
-      //   case "DELETE EMPLOYEE":
-      //     deleteEmployee().then(() => {
-      //       getEmployees();
-      //       start();
-      //     });
-      //     break;
-      //   case "DELETE DEPARTMENT":
-      //     deleteDepartment().then(() => {
-      //       getDepartments();
-      //       start();
-      //     });
-      //     break;
-      // }
+          start();
+        });
+      }
+      if (answers.options == "SHOW EMPLOYEES") {
+        getEmployees().then(() => {
+          start();
+        });
+      }
+      if (answers.options == "ADD DEPARTMENT") {
+        addDepartments().then(() => {
+          getDepartments();
+          start();
+        });
+      }
+      if (answers.options == "ADD ROLE") {
+        addRole().then(() => {
+          allRoles();
+          start();
+        });
+      }
+      if (answers.options == "ADD EMPLOYEE") {
+        addEmployees().then(() => {
+          getEmployees();
+          start();
+        });
+      }
+      if (answers.options == "UPDATE EMPLOYEE`S ROLE") {
+        updateRole().then(() => {
+          getEmployees();
+          start();
+        });
+      }
+      if (answers.options == "DELETE EMPLOYEE") {
+        deleteEmployee().then(() => {
+          getEmployees();
+          start();
+        });
+      }
+      if (answers.options == "DELETE DEPARTMENT") {
+        deleteDepartment().then(() => {
+          getDepartments();
+          start();
+        });
+      }
     })
     .catch((err) => {
       console.log(err);
@@ -109,3 +94,58 @@ const start = (answers) => {
 };
 
 start();
+
+// console.log(answers.options);
+// switch (answers.options) {
+//   case "SHOW DEPARTMENTS":
+//     getDepartments().then(() => {
+//       start();
+//     });
+//     break;
+//   case "SHOW ROLES":
+//     allRoles().then(() => {
+//       start();
+//     });
+//     break;
+//   case "SHOW EMPLOYEES":
+//     getEmployees().then(() => {
+//       start();
+//     });
+//     break;
+//   case "ADD DEPARTMENT":
+//     addDepartments().then(() => {
+//       getDepartments();
+//       start();
+//     });
+//     break;
+//   case "ADD ROLE":
+//     addRole().then(() => {
+//       allRoles();
+//       start();
+//     });
+//     break;
+//   case "ADD EMPLOYEE":
+//     addEmployees().then(() => {
+//       getEmployees();
+//       start();
+//     });
+//     break;
+//   case "UPDATE EMPLOYEE`S ROLE":
+//     updateRole().then(() => {
+//       getEmployees();
+//       start();
+//     });
+//     break;
+//   case "DELETE EMPLOYEE":
+//     deleteEmployee().then(() => {
+//       getEmployees();
+//       start();
+//     });
+//     break;
+//   case "DELETE DEPARTMENT":
+//     deleteDepartment().then(() => {
+//       getDepartments();
+//       start();
+//     });
+//     break;
+// }
